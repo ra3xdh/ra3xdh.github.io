@@ -1,1 +1,210 @@
-This is a future website for Qucs-S
+<head>
+<title>Qucs-S: Qucs with SPICE</title>
+</head>
+
+<body>
+
+<h1>Qucs-S: Qucs with SPICE</h2>
+
+<h2>Download links</h2>
+
+There is no release yet, but stable Release candidates are available. The latest
+is Qucs-S RC8:
+<ul>
+	<li>Documentation:<a href=https://qucs-help.readthedocs.io/en/spice4qucs/>https://qucs-help.readthedocs.io/en/spice4qucs/</a></li>
+	<Li>Source tarball: 
+	<a href=https://github.com/ra3xdh/qucs/releases/download/0.0.19S-rc8/qucs-0.0.19S-RC8.tar.gz>
+	qucs-0.0.19S-RC8.tar.gz
+	</a></li>
+	<li>Debian repository (32 and 64 bit packages), buit with openSUSE OBS:
+	<ul>
+		<li>Debian 8 "Jessy" at:<a href=http://download.opensuse.org/repositories/home:/ra3xdh/Debian_8.0/>
+			download.opensuse.org</a>
+		</li>
+		<li>Debian 7 "Wheezy" at:<a href=http://download.opensuse.org/repositories/home:/ra3xdh/Debian_7.0/>
+			download.opensuse.org</a>
+		</li>
+	</ul>
+	</li>
+	<li>Windows installer:
+	<a href=https://github.com/ra3xdh/qucs/releases/download/0.0.19S-rc8/qucs-0.0.19S-rc8-setup.zip>
+	qucs-0.0.19S-rc8-setup.zip
+	</a></li>
+</ul>
+
+<h2>News</h2>
+
+<ul>
+	<li><i>November 8, 2016</i> Qucs-S RC8 released.
+	<A href=https://github.com/ra3xdh/qucs/releases/tag/0.0.19S-rc8>Release notes and download link</A></li>
+	<li><i>September 3, 2016</i> Qucs-S RC7 released.
+	<A href=https://github.com/ra3xdh/qucs/releases/tag/0.0.19S-rc7>Release notes and download link</A></li>
+	<li><i>May 15, 2016</i> Qucs-S RC6 released.
+	<A href=https://github.com/ra3xdh/qucs/releases/tag/0.0.19S-rc6>Release notes and download link</A></li>
+	<li><i>March 23, 2016</i> Qucs-S RC5 released.
+	<A href=https://github.com/ra3xdh/qucs/releases/tag/0.0.19S-rc5>Release notes and download link</A></li>
+	<li><i>January 31, 2016</i> Qucs-S RC4 released.
+	<A href=https://github.com/ra3xdh/qucs/releases/tag/0.0.19S-rc4>Release notes and download link</A></li>
+	<li><i>August 29, 2015</i> Qucs-S RC3 released.</li>
+	<li><i>July 28, 2015</i> Qucs-S RC2 released.</li>
+	<li><i>July 25, 2015</i>Qucs-S RC1 released.</li>
+</ul>
+
+<h2>What is Qucs-S?</h2>
+
+Qucs-S is a spin-off of the <A href=http://qucs.github.io/>Qucs</A>
+cross-platform circuit simulator. "S" letter indicates SPICE. The purpose of 
+the Qucs-S subproject is to use free SPICE circuit simulation kernels with 
+the Qucs GUI. It merges the power of SPICE and the simplicity of the Qucs GUI. 
+
+Qucs intentionally uses its own SPICE incompatible simulation kernel Qucsator.
+It has advanced RF and AC domain simulation features, but the most of existing 
+industrial SPICE models are incompatible with it. 
+
+Qucs-S is not a simulator by itself, but it requires to use a simulation backend
+with it. The schematic document format of Qucs and Qucs-S are fully compatible. 
+Qucs-S allows to use the following simulation kernels with it:
+
+<ul>
+	<li><A href=http://ngspice.org>Ngspice</A> is recommended to use.
+	Ngspice is powerful mixed-level/mixed-signal circuit simulator. The
+	most of industrial SPICE models are compatible with Ngspice. It has an
+	excellent performance for time-domain simulation of switching circuits
+	and powerful postprocessor.</li>
+	<li><A href=https://xyce.sandia.gov>XYCE</A> is a new SPICE-compatible
+	circuit simulator written by Sandia from the scratch. It supports basic
+	SPICE simulation types and has an advances RF simulation features such
+	as Harmonic balance simulation. </li>
+	<li><A href=http://spiceopus.si>SpiceOpus</A> is developed by the Faculty of
+	Electrical Engineering of the Ljubljana University. It based on the
+	SPICE-3f5 code</li>
+	<li>Qucsator as backward compatible</li>
+</ul>
+
+<h2>Screenshots</h2>
+
+<ul>
+	<li>MOSFET power switch	<br>
+	<A href="irfz44.png">
+	<img src="irfz44.png" width=450 alt="IRFZ44 switch"></a></li>
+	<li>JFET mixer
+	<br>
+	<a href=mixer.png>
+	<img src="mixer.png" width=450 alt="JFET mixer"></a></li>
+	<li>Single-ended tube amplifier<br>
+	<a href=tub.png>
+        <img src="tub.png" width=450 alt="Tube amplifier"></a></li>
+</ul>
+
+<h2>Main features</h2>
+
+<ul>
+	<li>Backward compatible with Qucs by the component types and simulations</li>
+	<li>Direct support of SPICE models from components datasheets. SPICE
+	model could be added to schematic without any adaptation.</li>
+	<li>Basic SPICE components: RCL, BJT, MOSFET, JFET, MESFET, switches;</li>
+	<li>Advanced SPICE components: Equation-defined sources and RCLs, transmission lines;</li>
+	<li>Direct support of SPICE Modelcards, SPICE sections (.IC, .NODESET);</li>
+	<li>Parametric circuits (.PARAM) and SPICE postrprocessor (Nutmeg)</li>
+	<li>Basic SPICE simulations: DC, AC, TRAN;</li>
+	<li>Advanced SPICE simulation: DISTO, NOISE, Spectrum analysis;</li>
+	<li>Single-tone and Multitone Harmonic balanace analysis with XYCE
+	backend;</li>
+	<li>Nutmeg script simulation: direct access to the SPICE code and
+	construct your own simulation;</li>
+	<li>XYCE script simulation type;</li>
+</ul>
+
+<h2>Installation</h2>
+
+<h3>Linux</h3>
+
+<h4>Binary package</h4>
+
+You can use prebuilt binary DEB-package for Debian-8. Ubuntu-16.04 is also
+tested. Download and install it with <tt>dpkg</tt>:
+
+<tt>
+dpkg -i qucs-s-0.0.19S-RC8_x86_64.deb
+</tt>
+
+You may need to install the following dependencies:
+<tt>lib4qt4-qt3support</tt>,<tt>libqt4-svg</tt>, <tt>ngspice</tt>
+
+<h4>Building from source</h4>
+
+If your Linux distribution is not Debian-based, then you will need to build
+Qucs-S from source:
+
+<ul>
+	<li>Install all necessary dependencies: Qt, C++ compilers, etc.</li>
+	<li>Install desired simulation backends: Ngspice, XYCE, SpiceOpus. You can use all
+        these backends together or only one of them. Install basic Qucs (0.0.18 or
+        newer) if Qucsator is needed. </li>
+	<li>Download and unpack tarball</li>
+	<li>Use CMake to compile. Autotools doesn't support this installation mode and
+        will not work!</li>
+	<li>Invoke <tt>make</tt> and <tt>make install</tt></li>
+</ul>
+
+The complete command sequence to build Qucs-S is following:
+
+<p>
+<tt>
+tar xvfz qucs-0.0.19S-RC7.tar.gz<br>
+cd qucs-0.0.19S-RC7<br>
+mkdir builddir<br>
+cd builddir<br>
+cmake ..<br>
+make<br>
+make install<br>
+</tt>
+
+<p>
+The last command <tt>make install</tt> should be executed from <tt>root</tt> user. It will
+install Qucs-S into default prefix <tt>/usr/local/</tt>. No additional configure
+options are needed now. 
+
+<h3>Windows</h3>
+
+You need to use binary installer for Windows. You need to download and install
+Ngspice and/or XYCE manually from official websites: <A	href=http://ngspice.org/>http://ngspice.org/</A>
+<A href=https://xyce.sandia.gov/>https://xyce.sandia.gov</A> respectively.
+
+It's recommended special build of Ngspice-26 for Windows
+<A href=https://github.com/ra3xdh/qucs/releases/download/0.0.19S-rc6/Ngspice26_QucsS.zip>Ngspice26_QucsS.zip</A>
+. Default Ngspice package also will work but it may have some limitation. Custom
+Ngspice build solves the following issues:
+
+<ul>
+	<li>Windows GUI of Ngspice is disabled. It allows Qucs-S to obtain logs from
+	Ngspice.</li>
+	<li>Added CMPP preprocessor and C headers set mandatory for development of
+	CodeModel libraries. Default Ngspice build is shipped without it.</li>
+</ul>
+
+<h2>Usage</h2>
+
+<h3>Linux</h3>
+
+Run <tt>qucs-s</tt> from the command line or launch Qucs-S icon in your desktop
+environment menu after installation. You will need to select default simulation
+backend at the first run. You can change it later in application settings.
+
+<h3>Windows</h3>
+
+Launch Qucs-S in the system <i>Start</i> menu. You will also need to select default
+simulator on the first application start. You will need to set default simulator
+at the first run. Correct simulator paths setting is necessary for Windows.
+
+<h2>Authors</h2>
+
+<ul>
+	<li>Vadim Kuznetsov <a href=mailto:ra3xdh@gmail.com>ra3xdh@gmail.com</a></li>
+	<li>Mike Brinson <a href=mailto:mbrin72043@yahoo.co.uk>mbrin72043@yahoo.co.uk</a></li>	
+</ul>
+
+<h2>Publications</h2>
+
+</body>
+
