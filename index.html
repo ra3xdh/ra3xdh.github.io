@@ -15,13 +15,12 @@
 <small>
 <h2>Download links</h2>
 
-There is no release yet, but stable Release candidates are available. The latest
-is Qucs-S RC8:
+Qucs-0.0.19S is based on stable Qucs-0.0.19:
 <ul>
 	<li>Documentation:<a href=https://qucs-help.readthedocs.io/en/spice4qucs/>https://qucs-help.readthedocs.io/en/spice4qucs/</a></li>
 	<Li>Source tarball: 
-	<a href=https://github.com/ra3xdh/qucs/releases/download/0.0.19S-rc8/qucs-0.0.19S-RC8.tar.gz>
-	qucs-0.0.19S-RC8.tar.gz
+	<a href=https://github.com/ra3xdh/qucs/releases/download/0.0.19S/qucs-0.0.19S.tar.gz>
+	qucs-0.0.19S.tar.gz
 	</a></li>
 	<li>Debian repository (32 and 64 bit packages), buit with openSUSE OBS:
 	<ul>
@@ -159,17 +158,49 @@ Qucs-S allows to use the following simulation kernels with it:
 
 <h3>Linux</h3>
 
-<h4>Binary package</h4>
+<h4>Debian repository</h4>
 
-You can use prebuilt binary DEB-package for Debian-8. Ubuntu-16.04 is also
-tested. Download and install it with <tt>dpkg</tt>:
+Debian repository ("Jessy" and "Wheezy") is available for Qucs-S. Packages are
+built with automatic Open Build Service (OBS) tool from OpenSUSE team. 
 
-<tt>
-dpkg -i qucs-s-0.0.19S-RC8_x86_64.deb
-</tt>
+<A href=http://download.opensuse.org/repositories/home:/ra3xdh/>Go to download
+repository</A>
 
-You may need to install the following dependencies:
-<tt>lib4qt4-qt3support</tt>,<tt>libqt4-svg</tt>, <tt>ngspice</tt>
+You need to perform the following steps to add this repository in system (for
+Debian 8):
+
+<ul>
+	<li>Download GPG key:<br>
+	<tt>
+		wget -c<br>
+		http://download.opensuse.org/repositories/home:/ra3xdh/Debian_8.0/Release.key<br>
+	</tt>
+	</li>
+	<li>Add the following line to /etc/apt/sources.list:<br>
+	<tt>
+		dep http://download.opensuse.org/repositories/home:/ra3xdh/Debian_8.0/ ./<br>
+	</tt>
+	<li>
+	<li>Import key and update repos:<br>
+	<tt>
+		apt-key add Release.key<br>
+		apt-get update<br>
+	</tt>
+	<li>Install Qucs-S<br>
+	<tt>
+		apt-get install qucs-s<br>
+	</tt>
+	</li>
+
+If you have problems with adding repository in your system you can download and
+install the <tt>*.deb</tt> package manually with <tt>dpkg</tt>:
+
+		<tt>
+			dpkg -i qucs-s-0.0.19S_amd64.deb<br>
+		</tt>
+
+You may need to install the following dependencies: <tt>lib4qt4-qt3support</tt>,
+<tt>ibqt4-svg</tt>, <tt>ngspice</tt>
 
 <h4>Building from source</h4>
 
