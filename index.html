@@ -46,6 +46,8 @@ The latest stable release is Qucs-0.0.19S. It is based on stable Qucs-0.0.19:
 <h2>News</h2>
 
 <ul>
+	<li><i>January, 26, 2017</i> Qucs-S 0.0.19 is released! The first stable release.
+	<a href=https://github.com/ra3xdh/qucs/releases/tag/0.0.19S>Release announcement</a><br>
 	<li><i>November 8, 2016</i> Qucs-S RC8 released.
 	<A href=https://github.com/ra3xdh/qucs/releases/tag/0.0.19S-rc8>Release notes and download link</A></li>
 	<li><i>September 3, 2016</i> Qucs-S RC7 released.
@@ -172,7 +174,7 @@ built with automatic Open Build Service (OBS) tool from OpenSUSE team.
 repository</A>
 
 You need to perform the following steps to add this repository in system (for
-Debian 8):
+Debian 8). For othe distributions simple replace the URLs.
 
 <ul>
 	<li>Download GPG key:<br>
@@ -227,8 +229,8 @@ The complete command sequence to build Qucs-S is following:
 
 <p>
 <tt>
-tar xvfz qucs-0.0.19S-RC7.tar.gz<br>
-cd qucs-0.0.19S-RC7<br>
+tar xvfz qucs-0.0.19S.tar.gz<br>
+cd qucs-0.0.19S<br>
 mkdir builddir<br>
 cd builddir<br>
 cmake ..<br>
@@ -263,9 +265,9 @@ Ngspice build solves the following issues:
 
 <h3>Linux</h3>
 
-Run <tt>qucs-s</tt> from the command line or launch Qucs-S icon in your desktop
-environment menu after installation. You will need to select default simulation
-backend at the first run. You can change it later in application settings.
+Run <tt>qucs-s</tt> from the the command line or launch Qucs-S icon in your desktop
+environment menu after the installation. You will need to select default simulation
+backend at the first run. You can change it later in the application settings.
 
 <h3>Windows</h3>
 
@@ -284,6 +286,16 @@ at the first run. Correct simulator paths setting is necessary for Windows.
 </ul>
 
 <h2>Publications</h2>
+
+Qucs-S is not a simple circuit simulator, but also a research software. Please
+cite our articles, if you are using Qucs-S in your research.
+
+<ol>
+	<li>Brinson, M. E., and Kuznetsov, V. (2016) A new approach to compact semiconductor device modelling with Qucs Verilog-A analogue module synthesis. Int. J. Numer. Model., 29: 1070–1088. (<a href=ijnm.bib>BibTeX</a>)</li>
+	<li>D. Tomaszewski, G. Głuszko, M. Brinson, V. Kuznetsov and W. Grabinski, "FOSS as an efficient tool for extraction of MOSFET compact model parameters," 2016 MIXDES - 23rd International Conference Mixed Design of Integrated Circuits and Systems, Lodz, 2016, pp. 68-73.  (<a href=foss_mixdes.bib>BibTeX</a>)</li>
+	<li>M. Brinson and V. Kuznetsov, "Qucs-0.0.19S: A new open-source circuit simulator and its application for hardware design," 2016 International Siberian Conference on Control and Communications (SIBCON), Moscow, 2016, pp. 1-5.  (<a href=qucs_sibcon.bib>BibTeX</a>)</li>
+</ol>
+
 
 </body>
 
