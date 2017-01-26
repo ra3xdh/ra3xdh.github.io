@@ -198,13 +198,15 @@ Debian 8). For othe distributions simple replace the URLs.
 		apt-get install qucs-s<br>
 	</tt>
 	</li>
+</ul>
 
 If you have problems with adding repository in your system you can download and
 install the <tt>*.deb</tt> package manually with <tt>dpkg</tt>:
 
-		<tt>
-			dpkg -i qucs-s-0.0.19S_amd64.deb<br>
-		</tt>
+<p>
+	<tt>
+		dpkg -i qucs-s-0.0.19S_amd64.deb<br>
+	</tt>
 
 You may need to install the following dependencies: <tt>lib4qt4-qt3support</tt>,
 <tt>ibqt4-svg</tt>, <tt>ngspice</tt>
@@ -242,6 +244,26 @@ make install<br>
 The last command <tt>make install</tt> should be executed from <tt>root</tt> user. It will
 install Qucs-S into default prefix <tt>/usr/local/</tt>. No additional configure
 options are needed now. 
+
+<h4>Slackware SlackBuild</h4>
+
+Slack Build script is available for Slackware distribution. It will download and
+compile Qucs-S automatically. You will obtain the binary Qucs-S package. Perform
+the following steps to install Qucs-S:
+
+<ol>
+<li>Clone this repository:<br>
+<tt>
+git clone https://github.com/ra3xdh/QucsS.SlackBuild<br>
+</tt>
+<li>Run SlackBuild as root:<br>
+<tt>
+cd QucsS.S.SlackBuild<br>
+./qucs-S.SlackBuild<br>
+</tt>
+</li>
+<li>Install <tt>txz</tt> package with <tt>installpkg</tt> command</li>
+</ol>
 
 <h3>Windows</h3>
 
