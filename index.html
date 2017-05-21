@@ -17,12 +17,14 @@
 
 The latest stable release is Qucs-0.0.19S. It is based on stable Qucs-0.0.19:
 <ul>
-	<li>Documentation:<a href=https://qucs-help.readthedocs.io/en/spice4qucs/>https://qucs-help.readthedocs.io/en/spice4qucs/</a></li>
+	<li>Documentation at <a
+		href=https://qucs-help.readthedocs.io/en/spice4qucs/>
+	readthedocs.io</a></li>
 	<Li>Source tarball: 
 	<a href=https://github.com/ra3xdh/qucs/releases/download/0.0.19S/qucs-0.0.19S.tar.gz>
 	qucs-0.0.19S.tar.gz
 	</a></li>
-	<li>Debian repository (32 and 64 bit packages), buit with openSUSE OBS:
+	<li>Debian repository (32 and 64 bit), buit with openSUSE OBS:
 	<ul>
 		<li>Debian 8 "Jessy" at:<a href=http://download.opensuse.org/repositories/home:/ra3xdh/Debian_8.0/>
 			download.opensuse.org</a>
@@ -38,6 +40,8 @@ The latest stable release is Qucs-0.0.19S. It is based on stable Qucs-0.0.19:
 	</a></li>
 </ul>
 <a href=#inst>(Installation instructions...)</a>
+<h3>Contibuition guide</h3>
+Qucs-S is open for everyone's contbution. See <a href=#cg>here</a> for contribution guide.
 </small>
 </td>
 
@@ -306,6 +310,83 @@ at the first run. Correct simulator paths setting is necessary for Windows.
 	<li>Vadim Kuznetsov <a href=mailto:ra3xdh@gmail.com>ra3xdh@gmail.com</a></li>
 	<li>Mike Brinson <a href=mailto:mbrin72043@yahoo.co.uk>mbrin72043@yahoo.co.uk</a></li>	
 </ul>
+
+<h2 id=cg>Contrubution guide<h2>
+
+<h3>Steps to contribute</h3>
+
+<p>Use <tt>qucs-s-stable</tt> branch fore quick pre-release fixes, and <tt>spice4qucs_current</tt> 
+for new features. Don't use Perform the following commands to contribute into <tt>spice4qucs_current</tt>:
+
+<p>
+<tt>
+	git clone -b git clone -b spice4qucs_current https://github.com/ra3xdh/qucs<br>
+	cd qucs/qucs<br>
+	git checkout -b your_feature<br>
+</tt>
+
+You can find more detailed information about branching model and
+
+<h3>Branching model</h3>
+
+Currently there are three main branches in my home Qucs repository:
+
+<ul>
+	<li><tt>qucs-s-stable</tt> is release candidate for the next Qucs-S release. 
+	This branch provides side-by-side installation of Qucs and Qucs-S. Main application 
+	executable is renamed to qucs-s instead of qucs. The same for other tools and locations 
+	in installation tree. Only CMake is supported You need to set <tt>WITH_SPICE</tt> key 
+	for CMake to build it properly. </li>
+	<li><tt>spice4qucs_current</tt> is development branch. Use this branch to target patches. 
+	It uses traditional Qucs build system. Main application executable name is qucs. It may 
+	override system Qucs installation. There exists some experimental branches forked form 
+	this branch. I merge <tt>spice4qucs_current</tt> into <tt>qucs-s-stable</tt> time to time.</li>
+	<li> <tt>master</tt> is identical with mainline Qucs and doesn't contain spice4qucs 
+	additions. I keep it synchronized with mainline Qucs. I also merge <tt>master</tt> into 
+	<tt>qucs-s-stable</tt> time to time. </li>
+</ul>
+
+<p>Release tarball is obtained from qucs-s-stable with some 
+<a href=https://github.com/ra3xdh/qucs_scripts/blob/master/qucs-s-makepkg> Bash	script</a>. 
+This script removes Qucsator and microwave utilities from Qucs-S codebase. I distribute only 
+Qucs-GUI and some utilities with Qucs-S package.
+
+<p>My changes only concentrated on GUI side, and you need to rebuild GUI only to test Qucs-S. You may 
+take Qucsator from usual Qucs installation.
+
+<h3>Build instruction (development branches)</h3>
+
+<p>For <tt>qucs-s-stable</tt> you need to set WITH_SPICE cmake key. Autotools will not work. Perform 
+the following commnads to build all:
+
+<p>
+<tt>
+	git clone https://github.com/ra3xdh/qucs/ -b qucs-s-stable<br>
+	cd qucs/qucs<br>
+	mkdir build<br>
+	cd build<br>
+	cmake .. -DWITH_SPICE=ON  -DCMAKE_INSTALL_PREFIX=/some_path<br>
+	make<br>
+</tt>
+
+	<p>Then install and launch <tt>qucs-s</tt> executable.
+
+<p>For spice4qucs_current you may use traditional Qucs build instructions. You may need to rebuild only 
+Qucs-GUI. Autotools also may not work here, and it's recommended to use CMake:
+
+<p>
+<tt>
+	git clone https://github.com/ra3xdh/qucs/ -b spice4qucs_current<br>
+	cd qucs/qucs<br>
+	mkdir build<br>
+	cd build<br>
+	cmake ..  -DCMAKE_INSTALL_PREFIX=/some_path<br>
+	make<br>
+</tt>
+
+	<p>Then install and launch <tt>qucs</tt> binary.
+
+<a href=#top>(to top...)</a>
 
 <h2>Publications</h2>
 
