@@ -30,7 +30,12 @@ The latest stable release is Qucs-0.0.19S. It is based on stable Qucs-0.0.19:
 		<a href=http://download.opensuse.org/repositories/home:/ra3xdh/Debian_7.0/>Debian 7 "Wheezy"</a> 
 		and Ubuntu <a href=http://download.opensuse.org/repositories/home:/ra3xdh/xUbuntu_14.04/>14.04</a>
 	        and <a href=http://download.opensuse.org/repositories/home:/ra3xdh/xUbuntu_16.04/>16.04</a>
-	<li>RPM Packages (32 and 64 bit) for <a href=http://download.opensuse.org/repositories/home:/ra3xdh/CentOS_7/>CentOS</a> and Fedora-<a href=http://download.opensuse.org/repositories/home:/ra3xdh/Fedora_24/>24</a>, <a href=http://download.opensuse.org/repositories/home:/ra3xdh/Fedora_25/>25</a>, and <a href=http://download.opensuse.org/repositories/home:/ra3xdh/Fedora_26/>26</a></li>
+	<li>RPM Packages (32 and 64 bit) for 
+	<a href=http://download.opensuse.org/repositories/home:/ra3xdh/CentOS_7/>CentOS</a> 
+	and Fedora-<a href=http://download.opensuse.org/repositories/home:/ra3xdh/Fedora_24/>24</a>, 
+	<a href=http://download.opensuse.org/repositories/home:/ra3xdh/Fedora_25/>25</a>, and 
+	<a href=http://download.opensuse.org/repositories/home:/ra3xdh/Fedora_26/>26</a></li>
+	<li>Slackware>=14.1 <a href=https://github.com/ra3xdh/QucsS.SlackBuild>SlackBuild</a></li>
 	<li>Windows installer (Zipped EXE):
 	<a href=https://github.com/ra3xdh/qucs/releases/download/0.0.19S/qucs-0.0.19S-setup.zip>
 	qucs-0.0.19S-setup.zip
@@ -169,7 +174,7 @@ Qucs-S allows to use the following simulation kernels with it:
 
 <h4>Debian repository</h4>
 
-Debian repository ("Jessy" and "Wheezy") is available for Qucs-S. Packages are
+Debian(7,8, and 9) and Ubuntu(14.04 and 16.04) repositories are available for Qucs-S. Packages are
 built with automatic Open Build Service (OBS) tool from OpenSUSE team. 
 
 <A href=http://download.opensuse.org/repositories/home:/ra3xdh/>Go to download
@@ -213,10 +218,38 @@ install the <tt>*.deb</tt> package manually with <tt>dpkg</tt>:
 You may need to install the following dependencies: <tt>lib4qt4-qt3support</tt>,
 <tt>ibqt4-svg</tt>, <tt>ngspice</tt>
 
+<h4>RPM packages for CentOS and Fedora</h4>
+
+<p>You need to simple add reposotries using the <tt>yum</tt> package manager. Let's consider 
+example for CentOS:
+
+<ul>
+	<li>First add repository
+<p><tt>
+	yum-config-manager --add-repo http://download.opensuse.org/repositories/home:/ra3xdh/CentOS_7/<br>
+	yum-config-manager --enable ra3xdh<br>
+</tt>
+</li>
+
+<li>Then check that repository is added<br>
+
+<p><tt>
+	yum repolist alll
+</tt>
+</li>
+
+<li>
+And finally install the  <tt>qucs-s</tt> package<br>
+<tt>
+yum install qucs-s
+</tt>
+</li>
+<ul>
+
 <h4>Building from source</h4>
 
-If your Linux distribution is not Debian-based, then you will need to build
-Qucs-S from source:
+If binary packages are not available for your distrubution, then you will need 
+to build Qucs-S from source:
 
 <ul>
 	<li>Install all necessary dependencies: Qt, C++ compilers, etc.</li>
@@ -244,8 +277,8 @@ make install<br>
 
 <p>
 The last command <tt>make install</tt> should be executed from <tt>root</tt> user. It will
-install Qucs-S into default prefix <tt>/usr/local/</tt>. No additional configure
-options are needed now. 
+install Qucs-S into default prefix <tt>/usr/local/</tt>. Use <tt>-DCMAKE_INSTALL_PREFIX=...</tt> 
+to override the default locationNo additional configure options are needed now. 
 
 <h4>Slackware SlackBuild</h4>
 
