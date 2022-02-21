@@ -21,17 +21,16 @@ The latest stable release is Qucs-0.0.23. It is based on stable Qucs-0.0.19:
 	<li>Documentation at  the <a href=https://qucs-s-help.readthedocs.io/>readthedocs.io</a> and <a href=#docs>here</a></li>
 	<Li>Source tarball: 
 	<a href=https://github.com/ra3xdh/qucs_s/releases/download/0.0.23/qucs-s-0.0.23.tar.gz>
-	qucs-s-0.0.22.tar.gz
+	qucs-s-0.0.23.tar.gz
         </a> 
 	<li> <a href=https://github.com/ra3xdh/qucs_s>Github repository</a></li>
 	<li>AppImage for all Linux distributions <a href=https://github.com/ra3xdh/qucs_s/releases/download/0.0.23/Qucs-S-0.0.23-x86_64.AppImage>at Github</a></li>
-	<li>Debian repository (32 and 64 bit), built with openSUSE OBS:
-		<a href=http://download.opensuse.org/repositories/home:/ra3xdh/Debian_11/>Debian 11</a>, 
-		and Ubuntu <a href=http://download.opensuse.org/repositories/home:/ra3xdh/xUbuntu_20.04/>20.04</a>
-	        , <a href=http://download.opensuse.org/repositories/home:/ra3xdh/xUbuntu_18.04/>18.04</a>
+    <li>Linux reporsitories for Debian, Ubuntu, CentOS, Fedora. 
+        Find packages for your distribution <a href=https://download.opensuse.org/repositories/home:/ra3xdh/>here</a>
+    </li>
 	<li>Windows portable package:
 	<a href=https://github.com/ra3xdh/qucs_s/releases/download/0.0.23/qucs_s_win64_0_0_23.zip>
-	qucs-s-0.0.22-setup.zip
+	qucs-s-0.0.23-setup.zip
 	</a></li>
 </ul>
 <a href=#inst>(Installation instructions...)</a>
@@ -45,7 +44,7 @@ Qucs-S is open for everyone's contribution. See <a href=#cg>here</a> for contrib
 <h2>News</h2>
 
 <ul>
-	<li><i>January, 19, 2020</i> Qucs-S-0.0.23 is released! Application ported to Qt5. See 
+	<li><i>February, 20, 2020</i> Qucs-S-0.0.23 is released! Application ported to Qt5. See 
 	<a href=https://github.com/ra3xdh/qucs_s/releases/tag/0.0.23>Release notes and dowload link</a></li>
 	<li><i>January, 19, 2020</i> Qucs-S-0.0.22 is released! See 
 	<a href=https://github.com/ra3xdh/qucs_s/releases/tag/0.0.22>Release notes and dowload link</a></li>
@@ -187,7 +186,7 @@ note that AppImage doesn't include Ngspice and you need to install them using sy
 Debian(7,8, and 9) and Ubuntu(14.04 and 16.04) repositories are available for Qucs-S. Packages are
 built with automatic Open Build Service (OBS) tool from OpenSUSE team. 
 
-<A href=http://download.opensuse.org/repositories/home:/ra3xdh/>Go to download
+<A href=https://download.opensuse.org/repositories/home:/ra3xdh/>Go to download
 repository</A>
 
 You need to perform the following steps to add this repository in system (for
@@ -318,22 +317,10 @@ Ngspice and/or XYCE manually from official websites: <A	href=http://ngspice.org/
 
 Also portable zip-archive could be used. Unpack this archive and launch qucs-s.exe application.
 
-<p> <b>Important note for Ngspice on Windows:</b> Unpack Ngspice ZIP package strictly to the
-<tt>C:\SPICE</tt> location. Otherwise XSPICE model will not work! If you are getting strange errors with Ngspice 
-on Windows and cannot ot simulate even simple circuit, please check that Ngspice is installed strictly in 
-<tt>C:\SPICE</tt> . <b>All</b> Ngspice packages including offcial should be installed in a such way.
-
-<p>It's recommended special build of Ngspice-26 for Windows
-<A href=https://github.com/ra3xdh/qucs/releases/download/0.0.19S-rc6/Ngspice26_QucsS.zip>Ngspice26_QucsS.zip</A>
-. Default Ngspice package also will work but it may have some limitation. Custom
-Ngspice build solves the following issues:
-
-<ul>
-	<li>Windows GUI of Ngspice is disabled. It allows Qucs-S to obtain logs from
-	Ngspice.</li>
-	<li>Added CMPP preprocessor and C headers set mandatory for development of
-	CodeModel libraries. Default Ngspice build is shipped without it.</li>
-</ul>
+<p> <b>Important note for Ngspice on Windows:</b> Install package strictly to the
+<tt>C:\SPICE64</tt> location. Otherwise XSPICE model will not work! If you are getting strange errors with Ngspice 
+on Windows and cannot simulate even simple circuit, please check that Ngspice is installed strictly in 
+<tt>C:\SPICE64</tt>.
 
 <h2>Usage</h2>
 
