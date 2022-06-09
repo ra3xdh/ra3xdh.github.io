@@ -210,7 +210,7 @@ Debian 9). For othe distributions simple replace the URLs.
 	<li>
 	<li>Import key and update repos:<br>
 	<tt>
-		apt-key add Release.key<br>
+		mv Release.key /etc/apt/trusted.gpg.d/ra3xdh.asc<br>
 		apt-get update<br>
 	</tt>
 	<li>Install Qucs-S<br>
