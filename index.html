@@ -30,6 +30,7 @@ The latest stable release is Qucs-S-0.0.24
     <li>Linux reporsitories for Debian, Ubuntu, CentOS, Fedora. 
         Find packages for your distribution <a href=https://download.opensuse.org/repositories/home:/ra3xdh/>here</a>
     </li>
+    <li>FreeBSD using <a href=https://www.freshports.org/cad/qucs-s/>ports</a></li> 
 	<li>Windows portable package:
 	<a href=https://github.com/ra3xdh/qucs_s/releases/download/0.0.24/qucs_s_win64_0_0_24.zip>
 	qucs-s-0.0.24-setup.zip
@@ -314,6 +315,18 @@ cd QucsS.S.SlackBuild<br>
 </li>
 <li>Install <tt>txz</tt> package with <tt>installpkg</tt> command</li>
 </ol>
+
+<h3>FreeBSD</h3>
+
+<p>
+Qucs could be installed on FreeBSD using ports or binary package.
+
+<ul>
+    <li>Execute the following command to install port:</li>
+    <p><tt>cd /usr/ports/cad/qucs-s/ && make install clean</tt>
+    <li>Use the following command to add the package:</li>
+    <p><tt>pkg install qucs-s</tt>
+</ul>  
 
 <h3>Windows</h3>
 
