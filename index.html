@@ -28,7 +28,7 @@ The latest stable release is Qucs-S-0.0.24
 	<li> <a href=https://github.com/ra3xdh/qucs_s>Github repository</a></li>
 	<li>AppImage for all Linux distributions <a href=https://download.opensuse.org/repositories/home:/ra3xdh/AppImage/>at OBS</a></li>
     <li>Linux reporsitories for Debian, Ubuntu, CentOS, Fedora. 
-        Find packages for your distribution <a href=https://download.opensuse.org/repositories/home:/ra3xdh/>here</a>
+        Find packages for your distribution <a href=https://software.opensuse.org/download.html?project=home%3Ara3xdh&package=qucs-s>here</a>
     </li>
     <li>FreeBSD using <a href=https://www.freshports.org/cad/qucs-s/>ports</a></li> 
 	<li>Windows portable package:
@@ -188,77 +188,21 @@ You can run Qucs-S on all Linux platforms using AppImage without building it fro
 and you don't need to install them explicitly. Simple make AppImage executable and run it from console or your file manager. Please
 note that AppImage doesn't include Ngspice and you need to install them using system package manager.
 
-<h4>Debian repository</h4>
+<h4>Binary packages</h4>
 
-Debian(7,8, and 9) and Ubuntu(14.04 and 16.04) repositories are available for Qucs-S. Packages are
-built with automatic Open Build Service (OBS) tool from OpenSUSE team. 
-
-<A href=https://download.opensuse.org/repositories/home:/ra3xdh/>Go to download
-repository</A>
-
-You need to perform the following steps to add this repository in system (for
-Debian 9). For othe distributions simple replace the URLs.
+The usage of binary packages is the preffered way to get Qucs-S.
 
 <ul>
-	<li>Download GPG key:<br>
-	<tt>
-		wget -c<br>
-		http://download.opensuse.org/repositories/home:/ra3xdh/Debian_9.0/Release.key<br>
-	</tt>
-	</li>
-	<li>Add the following line to /etc/apt/sources.list:<br>
-	<tt>
-		deb http://download.opensuse.org/repositories/home:/ra3xdh/Debian_9.0/ ./<br>
-	</tt>
-	<li>
-	<li>Import key and update repos:<br>
-	<tt>
-		mv Release.key /etc/apt/trusted.gpg.d/ra3xdh.asc<br>
-		apt-get update<br>
-	</tt>
-	<li>Install Qucs-S<br>
-	<tt>
-		apt-get install qucs-s<br>
-	</tt>
-	</li>
-</ul>
-
-If you have problems with adding repository in your system you can download and
-install the <tt>*.deb</tt> package manually with <tt>dpkg</tt>:
-
-<p>
-	<tt>
-		dpkg -i qucs-s-0.0.19S_amd64.deb<br>
-	</tt>
-
-You may need to install the following dependencies: <tt>lib4qt4-qt3support</tt>,
-<tt>ibqt4-svg</tt>, <tt>ngspice</tt>
-
-<h4>RPM packages for CentOS and Fedora</h4>
-
-<p>You need to simple add reposotries using the <tt>yum</tt> package manager. Let's consider 
-example for CentOS:
-
-<ul>
-	<li>First add repository
-<p><tt>
-	yum-config-manager --add-repo http://download.opensuse.org/repositories/home:/ra3xdh/CentOS_7/<br>
-	yum-config-manager --enable ra3xdh<br>
-</tt>
-</li>
-
-<li>Then check that repository is added<br>
-
-<p><tt>
-	yum repolist alll
-</tt>
-</li>
-
 <li>
-And finally install the  <tt>qucs-s</tt> package<br>
-<tt>
-yum install qucs-s
-</tt>
+The DEB and RPM packages for Qucs-S are prepared with openSUSE build service. Check the package for your distribution 
+<a href=https://software.opensuse.org/download.html?project=home%3Ara3xdh&package=qucs-s>here</a> Then click on 
+distribution icon and find the installation instructions. You may need to install <tt>ngspice</tt> manually.
+</li>
+<li>
+Arch and Manjaro users may install Qucs-S from <a href=https://aur.archlinux.org/packages/qucs-s>AUR</a> 
+</li>
+<li>
+The packages for AltLinux are available from Sysyphus repository <a href=https://packages.altlinux.org/ru/sisyphus/srpms/qucs-s/>here</a>
 </li>
 </ul>
 
@@ -273,8 +217,7 @@ to build Qucs-S from source:
         these backends together or only one of them. Install basic Qucs (0.0.18 or
         newer) if Qucsator is needed. </li>
 	<li>Download and unpack tarball</li>
-	<li>Use CMake to compile. Autotools doesn't support this installation mode and
-        will not work!</li>
+	<li>Use CMake to compile.</li>
 	<li>Invoke <tt>make</tt> and <tt>make install</tt></li>
 </ul>
 
@@ -330,11 +273,22 @@ Qucs could be installed on FreeBSD using ports or binary package.
 
 <h3>Windows</h3>
 
-You need to use binary installer for Windows. You need to download and install
+<p>Windows portable package could be downloaded as zipped distribution. Unpack and launch <tt>qucs-s.exe</tt>
+from bin subdirectory. Two windows packages are available:
+
+<ul>
+    <li>
+    <tt>qucs_s_win64_0_0_24.zip</tt> 64-bit (x86_64) portable Windows version;
+    </li>
+    <li>
+    <tt>qucs_s_win32_0_0_24.zip</tt> 32-bit (i686) portable Windows version;
+    </li>
+</ul>
+
+<p>You need to download and install
 Ngspice and/or XYCE manually from official websites: <A	href=http://ngspice.org/>http://ngspice.org/</A>
 <A href=https://xyce.sandia.gov/>https://xyce.sandia.gov</A> respectively. 
 
-Also portable zip-archive could be used. Unpack this archive and launch qucs-s.exe application.
 
 <p> <b>Important note for Ngspice on Windows:</b> Install package strictly to the
 <tt>C:\SPICE64</tt> location. Otherwise XSPICE model will not work! If you are getting strange errors with Ngspice 
@@ -351,11 +305,7 @@ backend at the first run. You can change it later in the application settings.
 
 <h3>Windows</h3>
 
-<p>For portable package run the qucs-s.exe binary to launch application.
-
-<p>For system-wide installation launch Qucs-S in the system <i>Start</i> menu. You will also need to select default
-simulator on the first application start. You will need to set default simulator
-at the first run. Correct simulator paths setting is necessary for Windows.
+<p>For portable package run the qucs-s.exe binary to launch application. You may create a desktop shortcut for it. 
 
 <p>
 <a href=#top>(to top...)</a>
