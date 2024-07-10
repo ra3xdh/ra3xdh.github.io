@@ -18,8 +18,7 @@
 
 The latest stable release is Qucs-S-24.2.1
 <ul>
-	<li>Documentation at  the <a href=https://qucs-s-help.readthedocs.io/>readthedocs.io</a> and <a href=#docs>here</a></li>
-    <li>Quick start tutorial as <a href=pdf/qucs_s_tutorial.pdf>PDF</a></li>
+    <li>Quick reference guide as <a href=pdf/qucs_s_tutorial.pdf>PDF</a></li>
     <li><a href=https://www.youtube.com/watch?v=90RaVy38DB8>Video tutorial</a> from Kasper Nielsen</li>
 	<Li>Source tarball: 
 	<a href=https://github.com/ra3xdh/qucs_s/releases/download/24.2.1/qucs-s-24.2.1.tar.gz>
@@ -35,7 +34,7 @@ The latest stable release is Qucs-S-24.2.1
 	<a href=https://github.com/ra3xdh/qucs_s/releases/download/24.2.1/qucs_s_win64_portable_24_2_1.zip>
 	qucs_s_win64_portable_24_2_1.zip
 	</a></li>
-	<li>Windows installer:
+	<li>Windows installer with Ngspice:
 	<a href=https://github.com/ra3xdh/qucs_s/releases/download/24.2.1/qucs-s-24_2_1-setup.exe>
 	qucs-s-24_2_1-setup.exe
 </ul>
@@ -84,7 +83,7 @@ Qucs-S accepts donations using Boosty: <a href="https://boosty.to/qucs_s">https:
 <td valign="top">
 <small>
 <h2>Simulation example with Qucs-S and Ngspice</h2>
-<a href=irfz44.png><img src=irfz44.png width=500></a>
+<a href=ne5532.png><img src=ne5532.png width=500></a>
 <br>
 <a href="#scrnshots">(More screenshots...)</a>
 <h2>Publications</h2>
@@ -98,26 +97,27 @@ Qucs-S is also a research software. Check our <a href=#pub>publication list<a>.
 
 Qucs-S is a circuit simulation program based on<A href=http://qucs.github.io/>Qucs</A>
 circuit simulator. The "S" letter indicates SPICE. The purpose of the Qucs-S project is
-to use free SPICE circuit simulation kernels with the GUI based on Qt toolkit. It merges 
-the power of SPICE and the simplicity of the Qucs GUI. Qucs-S is not a simulator by itself, 
-but it requires to use an external simulation backend with it. Qucs-S allows to use the 
-following open-source simulation kernels:
+to use free circuit simulation kernels (Ngspice, Qucsator, Xyce) with the unified GUI based 
+on Qt6 toolkit. It merges the power of SPICE and the simplicity of the Qucs GUI. Qucs-S is not 
+a simulator by itself, but it requires to use an external simulation backend with it. Qucs-S 
+allows to use the following open-source simulation kernels:
 
 <ul>
 	<li><A href=http://ngspice.org>Ngspice</A> is recommended to use.
 	Ngspice is powerful mixed-level/mixed-signal circuit simulator. The
 	most of industrial SPICE models are compatible with Ngspice. It has an
-	excellent performance for time-domain simulation of switching circuits
-	and powerful postprocessor.</li>
+	excellent simulation performance and powerful postprocessor. 
+    Google Skywater 130nm PDK supports Ngspice.</li>
 	<li><A href=https://xyce.sandia.gov>XYCE</A> is a new SPICE-compatible
 	circuit simulator written by Sandia from the scratch. It supports basic
 	SPICE simulation types and has an advanced RF simulation features such
 	as Harmonic balance simulation. </li>
+    <li><A href=https://github.com/ra3xdh/qucsator_rf>QucsatorRF</A> for RF and microwave circuits design. 
+    It provides advanced models for such devices microstrip lines and waveguides. QucsatorRF is not 
+    SPICE compatible. The general purpose circuits simulation is also possible but not recommended. </li>
 	<li><A href=http://spiceopus.si>SpiceOpus</A> is developed by the Faculty of
 	Electrical Engineering of the Ljubljana University. It based on the
 	SPICE-3f5 code</li>
-    <li><A href=https://github.com/qucs/qucsator>Qucsator</A> as backward compatible
-    and for RF and microwave circuits design.</li>
 </ul>
 
 <h2 id="scrnshots">Screenshots</h2>
@@ -126,9 +126,9 @@ following open-source simulation kernels:
 <table>
 	<tr>
 	<td>
-	<li>MOSFET power switch	<br>
-	<A href="irfz44.png">
-	<img src="irfz44.png" width=450 alt="IRFZ44 switch"></a></li>
+	<li>NE5532 amplifier using SPICE model<br>
+	<A href="ne5532.png">
+	<img src="ne5532.png" width=450 alt="NE5532 amplifier"></a></li>
         </td>
 	<td>
 	<li>JFET mixer
@@ -160,34 +160,27 @@ following open-source simulation kernels:
 
 
 <ul>
-	<li>Backward compatible with Qucs by the component types and simulations</li>
-	<li>Direct support of SPICE models from components datasheets. SPICE
-	model could be added to schematic without any adaptation.</li>
+	<li>Basic and advanced simulation types: AC, DC, transient, S-parameter, FFT, distortion, pole-zero,
+    parametric sweep.</li>
+    <li>Advanced RF simulation with Qucsator RF backend;</li>
+    <li>Quick switching of the simulation kernel without application restart;</li>
+    <li>Tuner simulation mode</li>
+	<li>Direct support of SPICE models from components datasheets;</li>
 	<li>Basic SPICE components: RCL, BJT, MOSFET, JFET, MESFET, switches;</li>
 	<li>Advanced SPICE components: Equation-defined sources and RCLs, transmission lines;</li>
-	<li>Direct support of SPICE Modelcards, SPICE sections (.IC, .NODESET);</li>
 	<li>Parametric circuits (.PARAM) and SPICE postrprocessor (Nutmeg)</li>
 	<li>Basic SPICE simulations: DC, AC, TRAN;</li>
 	<li>Advanced SPICE simulation: DISTO, NOISE, SENS (added in 0.0.20), Spectrum analysis;</li>
-	<li>Single-tone and Multitone Harmonic balance analysis with XYCE
-	backend;</li>
+	<li>Harmonic balance analysis with XYCE	and Qucsator RF backends;</li>
 	<li>Nutmeg script simulation: direct access to the SPICE code and
 	construct your own simulation;</li>
 	<li>XYCE script simulation type;</li>
 	<li>XYCE digital devices library;</li>
-	<li>XSPICE CodeModel <a href=http://mos-ak.org/lausanne_2017/presentations/T03_Kuznetsov_MOS-AK_DATE_2017.pdf>synthesizer</a>;</li>
-	<li>User mathematical functions definitions with .FUNC (added in 0.0.20);</li>
 </ul>
 
 <h2 id="inst">Installation</h2>
 
 <h3>Linux</h3>
-
-<h4>AppImage for all Linux distributions</h4>
-
-You can run Qucs-S on all Linux platforms using AppImage without building it from source. AppImage already includes Qt4 libraries
-and you don't need to install them explicitly. Simple make AppImage executable and run it from console or your file manager. Please
-note that AppImage doesn't include Ngspice and you need to install them using system package manager.
 
 <h4>Binary packages</h4>
 
@@ -207,6 +200,16 @@ The packages for AltLinux are available from Sysyphus repository <a href=https:/
 </li>
 </ul>
 
+<h4>AppImage for all Linux distributions</h4>
+
+<p>You can run Qucs-S on all Linux platforms using AppImage without building it from source. This way is preferrable, if there is 
+no prebuilt package for your distribution and/or you have not root access to the machine. Otherwise it is recommneded to install 
+the binary package from the repository (see the section above). 
+
+<p>Download AppImage and make it executable, then run it from the console or your file manager. Please
+note that AppImage doesn't include Ngspice and you need to install it using system package manager.
+
+
 <h4>Building from source</h4>
 
 If binary packages are not available for your distrubution, then you will need 
@@ -215,50 +218,15 @@ to build Qucs-S from source:
 <ul>
 	<li>Install all necessary dependencies: Qt, C++ compilers, etc.</li>
 	<li>Install desired simulation backends: Ngspice, XYCE, SpiceOpus. You can use all
-        these backends together or only one of them. Install basic Qucs (0.0.18 or
-        newer) if Qucsator is needed. </li>
+        these backends together or only one of them. QucsatorRF backend is shipped with Qucs-S.</li>
 	<li>Download and unpack tarball</li>
-	<li>Use CMake to compile.</li>
+	<li>Use CMake to configure.</li>
 	<li>Invoke <tt>make</tt> and <tt>make install</tt></li>
 </ul>
 
-The complete command sequence to build Qucs-S is following:
 
-<p>
-<tt>
-tar xvfz qucs-s-0.0.21.tar.gz<br>
-cd qucs-s-0.0.21<br>
-mkdir builddir<br>
-cd builddir<br>
-cmake ..<br>
-make<br>
-make install<br>
-</tt>
+Refer to the README.md of the Qucs-S github <a href=https://github.com/ra3xdh/qucs_s>repository</a> for the recent build instructions.
 
-<p>
-The last command <tt>make install</tt> should be executed from <tt>root</tt> user. It will
-install Qucs-S into default prefix <tt>/usr/local/</tt>. Use <tt>-DCMAKE_INSTALL_PREFIX=...</tt> 
-to override the default locationNo additional configure options are needed now. 
-
-<h4>Slackware SlackBuild</h4>
-
-Slack Build script is available for Slackware distribution. It will download and
-compile Qucs-S automatically. You will obtain the binary Qucs-S package. Perform
-the following steps to install Qucs-S:
-
-<ol>
-<li>Clone this repository:<br>
-<tt>
-git clone https://github.com/ra3xdh/QucsS.SlackBuild<br>
-</tt>
-<li>Run SlackBuild as root:<br>
-<tt>
-cd QucsS.S.SlackBuild<br>
-./qucs-S.SlackBuild<br>
-</tt>
-</li>
-<li>Install <tt>txz</tt> package with <tt>installpkg</tt> command</li>
-</ol>
 
 <h3>FreeBSD</h3>
 
@@ -275,33 +243,22 @@ Qucs could be installed on FreeBSD using ports or binary package.
 <h3>Windows</h3>
 
 <p>Windows portable package could be downloaded as zipped distribution. Unpack and launch <tt>qucs-s.exe</tt>
-from bin subdirectory. Two windows packages are available:
-
-<ul>
-    <li>
-    <tt>qucs_s_win64_0_0_24.zip</tt> 64-bit (x86_64) portable Windows version;
-    </li>
-    <li>
-    <tt>qucs_s_win32_0_0_24.zip</tt> 32-bit (i686) portable Windows version;
-    </li>
-</ul>
+from bin subdirectory. Only 64-bit windows packages are available:
 
 <p>You need to download and install
 Ngspice and/or XYCE manually from official websites: <A	href=http://ngspice.org/>http://ngspice.org/</A>
 <A href=https://xyce.sandia.gov/>https://xyce.sandia.gov</A> respectively. 
 
-
-<p> <b>Important note for Ngspice on Windows:</b> Install package strictly to the
-<tt>C:\SPICE64</tt> location. Otherwise XSPICE model will not work! If you are getting strange errors with Ngspice 
-on Windows and cannot simulate even simple circuit, please check that Ngspice is installed strictly in 
-<tt>C:\SPICE64</tt>.
+<p>You may also use Windows installer. Launch the installer executable and follow the installation wizard guide. 
+Windows installer includes both Ngspice and QucsatorRF simulation kernels. You may download and update simulation 
+backends manually and specify the simulator paths in application settings.
 
 <h2>Usage</h2>
 
 <h3>Linux</h3>
 
 Run <tt>qucs-s</tt> from the the command line or launch Qucs-S icon in your desktop
-environment menu after the installation. You will need to select default simulation
+environment menu after the installation. Ngspice is set as the default simulation
 backend at the first run. You can change it later in the application settings.
 
 <h3>Windows</h3>
@@ -311,12 +268,15 @@ backend at the first run. You can change it later in the application settings.
 <p>
 <a href=#top>(to top...)</a>
 
-<h2>Authors</h2>
+<h2>Developers</h2>
 
+<p>Project founders:
 <ul>
 	<li>Vadim Kuznetsov <a href=mailto:ra3xdh@gmail.com>ra3xdh@gmail.com</a></li>
 	<li>Mike Brinson <a href=mailto:mbrin72043@yahoo.co.uk>mbrin72043@yahoo.co.uk</a></li>	
 </ul>
+
+<p>See the full contributors list at the Github repository page: <a href=https://github.com/ra3xdh/qucs_s/graphs/contributors>https://github.com/ra3xdh/qucs_s/graphs/contributors</a>  
 
 <h2 id=cg>Contribution guide</h2>
 
@@ -328,7 +288,7 @@ need to clone this repository if you wish to contribute.
 
 <p>
 <tt>
-	git clone -b current https://github.com/ra3xdh/qucs_s<br>
+	git clone https://github.com/ra3xdh/qucs_s<br>
 	cd qucs_s<br>
 	git checkout -b your_feature<br>
 </tt>
@@ -338,40 +298,19 @@ pull request to Qucs-S repository.
 
 <h3>Branching model</h3>
 
-Currently there are two main branches in my home Qucs repository:
+Currently there are two main branches in Qucs-S repository:
 
 <ul>
-	<li><tt>master</tt> is release candidate for the next Qucs-S release. 
-	This branch provides side-by-side installation of Qucs and Qucs-S. Main application 
-	executable is named to qucs-s. Only CMake is supported. </li>
-	<li><tt>current</tt> is development branch. Use this branch to target patches. 
-	It uses traditional Qucs build system. There may exist some experimental branches forked form 
-	this branch. I merge <tt>current</tt> into <tt>master</tt> time to time.</li>
+	<li><tt>master</tt> reflects the state of the latest Qucs-S release. </li>
+	<li><tt>current</tt> is development branch. Use this branch to target patches. </li>
+    <li><a href=https://github.com/ra3xdh/qucsator_rf>QucsatorRF</a> repository hosts 
+    the RF simulation backend code. It has a separate release system.</li>
 </ul>
 
-<p>Release tarball is obtained from <tt>master</tt> with some 
-<a href=https://github.com/ra3xdh/qucs_scripts/blob/master/qucs-s-makepkg> Bash	script</a>. 
-I distribute only Qucs-GUI and some utilities with Qucs-S package.
-
-<p>My changes only concentrated on GUI side, and you need to rebuild GUI only to test Qucs-S. You may 
-take Qucsator from usual Qucs installation.
 
 <h3>Build instruction (development branches)</h3>
 
-<p>For <tt>qucs-s-stable</tt> you need to set WITH_SPICE cmake key. Autotools will not work. Perform 
-the following commnads to build all:
-
-<tt>
-	git clone https://github.com/ra3xdh/qucs_s/<br>
-	cd qucs_s<br>
-	mkdir build<br>
-	cd build<br>
-	cmake ..  -DCMAKE_INSTALL_PREFIX=/some_path<br>
-	make<br>
-</tt>
-
-<p>Then install and launch <tt>qucs-s</tt> executable.
-
+Refer to the README.md of the Qucs-S github <a href=https://github.com/ra3xdh/qucs_s>repository</a> for the recent build instructions.
 
 <a href=#top>(to top...)</a>
 
@@ -379,7 +318,6 @@ the following commnads to build all:
 
 
 <ul>
-	<li>Main documentation page at <a href=https://qucs-s-help.readthedocs.io>readthedocs.io</a></li>
 	<li>Presentation at the 
 	<a href=http://www.mos-ak.org/lausanne_2016/presentations/T04_Brinson_MOS-AK_Lausanne_2016.pdf>
         Spring MOS-AK 2016</a> at Lausanne</li>
